@@ -20,9 +20,13 @@ const dialogflowFulfillment = (request, response) => {
     function sayHello(agent){
         agent.add("Hello, this was a nice tutorial by axlewebtech")
     }
-
+    function faultreply(agent){
+        agent.add("That's not how it's said")
+    }
     let intentMap = new Map();
     intentMap.set("Default Welcome Intent-L0", sayHello)
+    intentMap.set("Default Fallback Intent",faultreply)
     agent.handleRequest(intentMap)
+
 
 }
