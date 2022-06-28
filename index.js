@@ -21,7 +21,7 @@ const dialogflowFulfillment = (request, response) => {
         const request = require('request');
 request('http://www.google.com', function (error, response, body) {
   if (!error && response.statusCode == 200) {
-    console.log(body) // Print the google web page.
+    agent.add(console.log(body)) // Print the google web page.
   }else{
     agent.add("Did not work")
   }
