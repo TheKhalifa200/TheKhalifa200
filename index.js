@@ -18,7 +18,15 @@ const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
     function membershipno(agent){
-        agent.add("Hello, this was a nice tutorial by axlewebtech")
+        const request = require('request');
+request('RegValidation/Membership?membershipNo=26233&ExpiryDate=10/10/2020', function (error, response, body) {
+  if (!error && response.statusCode == 200) {
+    console.log(body) // Print the google web page.
+  }else{
+    agent.add("Did not work")
+  }
+})
+        
     }
 
     function sayHello(agent){
