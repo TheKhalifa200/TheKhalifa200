@@ -18,11 +18,17 @@ const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
     function membershipno(agent){
-        return app.get(`https://jsonplaceholder.typicode.com/todos/1`)
-        .then((result) => {
-            agent.add(result)
-            });
-        }
+        return app.get('https://jsonplaceholder.typicode.com/todos/1', (req, res) => {
+            // check if verification token is correct
+            if (req.query.token !== token) {
+                return res.sendStatus(401);
+            }
+        
+            // return challenge
+            return res.end(req.query.challenge);})
+
+        
+    }
 
     function sayHello(agent){
         agent.add("Hello, this was a nice tutorial by axlewebtech")
