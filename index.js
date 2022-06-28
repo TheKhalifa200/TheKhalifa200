@@ -18,7 +18,7 @@ const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
     function membershipno(agent){
-        return express.get(`https://jsonplaceholder.typicode.com/todos/1`)
+        return app.get(`https://jsonplaceholder.typicode.com/todos/1`)
         .then((result) => {
             agent.add(result)
             });
