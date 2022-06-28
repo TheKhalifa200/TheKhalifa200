@@ -18,14 +18,7 @@ const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
     function membershipno(agent){
-         app.get('https://jsonplaceholder.typicode.com/todos/1', (req, res) => {
-            // check if verification token is correct
-            if (req.query.token !== token) {
-                return res.sendStatus(401);
-            }
-        
-            // return challenge
-            return res.end(req.query.challenge);})
+         agent.app("https://jsonplaceholder.typicode.com/todos/1", agent.add(console.log(body)))
 
         
     }
