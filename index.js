@@ -1,5 +1,4 @@
 const express = require('express')
-const functions = require('firebase-functions');
 const bodyParser = require('body-parser')
 const {WebhookClient} = require('dialogflow-fulfillment');
 
@@ -15,19 +14,15 @@ app.listen(port, () => {
     console.log(`Listening on port ${port}`)
 })
 
-exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, response) => {
-    const agent = new WebhookClient({ request, response });
-    console.log('Dialogflow Request headers: ' + JSON.stringify(request.headers));
-    console.log('Dialogflow Request body: ' + JSON.stringify(request.body));
+const dialogflowFulfillment = (request, response) => {
+    const agent = new WebhookClient({request, response})
 
     function membershipno(agent){
         return express.get(`https://jsonplaceholder.typicode.com/todos/1`)
         .then((result) => {
-            result.data.map(wordObj => {
-                agent.add(wordObj.word);
+            agent.add(result)
             });
         }
-    )}
 
     function sayHello(agent){
         agent.add("Hello, this was a nice tutorial by axlewebtech")
