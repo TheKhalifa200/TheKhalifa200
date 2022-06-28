@@ -18,12 +18,9 @@ const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
     function membershipno(agent){
-        const request = require('request');
-        request('http://157.175.215.187:3090/Membership/Profile?membershipNo=26233', function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-                agent.add(console.log(body)) // Print the google web page.
-            }
-        })
+        const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+        const myJson = await response.json();
+        agent.add(myJson)
     }
 
     function sayHello(agent){
