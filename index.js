@@ -21,12 +21,8 @@ const dialogflowFulfillment = (request, response) => {
         const request = require('request');
 request('http://localhost:53270/api/RegValidation/Membership?membershipNo=26233&ExpiryDate=10/10/2020', function (error, response, body) {
   if (!error && response.statusCode == 200) {
- // Print the google web page.
-    agent.add("It works")
-  }else{
-    agent.add("Did not work")
-  }
-})
+    agent.add(console.log(body)) // Print the google web page.
+}})
         
     }
 
