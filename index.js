@@ -18,10 +18,13 @@ const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
     function membershipno(agent){
-        const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-        const myJson = await response.json();
-        agent.add(myJson)
-    }
+        return express.get(`https://jsonplaceholder.typicode.com/todos/1`)
+        .then((result) => {
+            result.data.map(wordObj => {
+                agent.add(wordObj.word);
+            });
+        }
+    )}
 
     function sayHello(agent){
         agent.add("Hello, this was a nice tutorial by axlewebtech")
