@@ -17,6 +17,10 @@ app.listen(port, () => {
 const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
+    function membershipno(agent){
+        agent.add("Hello, this was a nice tutorial by axlewebtech")
+    }
+
     function sayHello(agent){
         agent.add("Hello, this was a nice tutorial by axlewebtech")
     }
@@ -26,6 +30,7 @@ const dialogflowFulfillment = (request, response) => {
     let intentMap = new Map();
     intentMap.set("Default Welcome Intent-L0", sayHello)
     intentMap.set("Default Fallback Intent",faultreply)
+    intentMap.set("MembershipNo",membershipno)
     agent.handleRequest(intentMap)
 
 
