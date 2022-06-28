@@ -19,7 +19,7 @@ const dialogflowFulfillment = (request, response) => {
 
     function membershipno(agent){
         const request = require('request');
-request('http://localhost:53270/api/RegValidation/Membership?membershipNo=26233&ExpiryDate=10/10/2020', function (error, response, body) {
+request('www.google.com', function (error, response, body) {
   if (!error && response.statusCode == 200) {
     agent.add(console.log(body)) // Print the google web page.
 }})
