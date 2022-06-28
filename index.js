@@ -18,9 +18,9 @@ const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
     function membershipno(agent){
-        agent('www.google.com', function (error, response, body) {
+        agent.add('www.google.com', function (error, response, body) {
             if (!error && response.statusCode == 200) {
-                 agent.add(console.log(body)) // Print the google web page.
+                 console.log(body)// Print the google web page.
 }})
         
     }
