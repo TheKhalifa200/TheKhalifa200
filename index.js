@@ -14,9 +14,11 @@ app.listen(port, () => {
     console.log(`Listening on port ${port}`)
 })
 
-const dialogflowFulfillment = (request, response) => {
-    const agent = new WebhookClient({request, response})
-
+exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, response) => {
+    const agent = new WebhookClient({ request, response });
+    console.log('Dialogflow Request headers: ' + JSON.stringify(request.headers));
+    console.log('Dialogflow Request body: ' + JSON.stringify(request.body));
+    
     function membershipno(agent){
         return express.get(`https://jsonplaceholder.typicode.com/todos/1`)
         .then((result) => {
