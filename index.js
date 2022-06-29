@@ -21,7 +21,7 @@ const dialogflowFulfillment = (request, response) => {
     async function membershipno(agent){
         const bent = require('bent')
 
-        const getStream = bent('https://jsonplaceholder.typicode.com/todos/1')
+        const getStream = bent('http://site.com')
 
         let stream = await getStream('/json.api')
         // status code
@@ -31,8 +31,7 @@ const dialogflowFulfillment = (request, response) => {
         const obj = await stream.json()
         // or
         const str = await stream.text()
-        agent.add(obj)
-        agent.add(str)
+        return agent.add(obj)
     }
 
     function sayHello(agent){
