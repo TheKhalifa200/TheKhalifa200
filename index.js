@@ -1,6 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const {WebhookClient} = require('dialogflow-fulfillment');
+const rp = require('request-promise-native');
+
 
 const app = express()
 app.use(bodyParser.json())
@@ -18,15 +20,20 @@ const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
     function membershipno(agent){
-        const request = require('request');
-        request('http://157.175.215.187:3090/Membership/Profile?membershipNo=26233', function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-                agent.add(console.log(body)) // Print the google web page.
-            }else{
-                agent.add("it did not work")
-            }
-        })
-    }
+      var url = 'https://jsonplaceholder.typicode.com/todos/1';
+         var options = {
+        uri: url,
+        json: true
+        };
+        return rp.get( options )
+        .then( body => {
+      agent.add("Got a response: "+body);
+    })
+        .error( err => {
+        agent.add("Got an error: " + err);
+    });
+}
+    
 
     function sayHello(agent){
         agent.add("Hello, this was a nice tutorial by axlewebtech")
