@@ -27,11 +27,9 @@ const dialogflowFulfillment = (request, response) => {
         // status code
         stream.status // 200
         stream.statusCode // 200
-        // optionally decode
-        const obj = await stream.json()
-        // or
+        // optionally decode        // or
         const str = await stream.text()
-         agent.add(obj)
+         agent.add(str)
     }
 
     function sayHello(agent){
