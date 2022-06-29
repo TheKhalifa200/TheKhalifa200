@@ -19,7 +19,7 @@ app.listen(port, () => {
 const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
-     function membershipno(agent){
+     async function membershipno(agent){
         const bent = require('bent')
         
         const getStream = bent('https://jsonplaceholder.typicode.com/todos/1')
@@ -34,7 +34,7 @@ const dialogflowFulfillment = (request, response) => {
     }
 
     function sayHello(agent){
-        agent.add("Hello, this was a nice tutorial by axlewebtech")
+        agent.add("Hello, this is from heroku :3")
     }
     function faultreply(agent){
         agent.add("That's not how it's said")
