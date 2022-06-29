@@ -19,15 +19,20 @@ const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
     function membershipno(agent){
-        const request = require('request');
-        request('https://jsonplaceholder.typicode.com/todos/1', function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-                console.log(body)
-                agent.add(body) // Print the google web page.
-            }else{
-                agent.add("it did not work")
-            }
-        })
+        const bent = require('bent')
+
+        const getStream = bent('https://jsonplaceholder.typicode.com/todos/1')
+
+        let stream = await getStream('/json.api')
+        // status code
+        stream.status // 200
+        stream.statusCode // 200
+        // optionally decode
+        const obj = await stream.json()
+        // or
+        const str = await stream.text()
+        agent.add(obj)
+        agent.add(str)
     }
 
     function sayHello(agent){
