@@ -31,7 +31,7 @@ const dialogflowFulfillment = (request, response) => {
         const obj = await stream.json()
         // or
         const str = await stream.text()
-        return agent.add(obj)
+         agent.add(obj)
     }
 
     function sayHello(agent){
