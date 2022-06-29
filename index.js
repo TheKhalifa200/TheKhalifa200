@@ -19,17 +19,17 @@ app.listen(port, () => {
 const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
-     async function membershipno(agent){
+      function membershipno(agent){
         const bent = require('bent')
         
         const getStream = bent('https://jsonplaceholder.typicode.com/todos/1')
 
-        let stream = await getStream('/json.api')
+        let stream =  getStream('/json.api')
         // status code
         stream.status // 200
         stream.statusCode // 200
         // optionally decode        // or
-        const str = await stream.text()
+        const str =  stream.text()
          agent.add(str)
     }
 
