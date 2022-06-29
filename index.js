@@ -1,7 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const {WebhookClient} = require('dialogflow-fulfillment');
-
+const bent = require('bent')
+const getStream = bent('https://jsonplaceholder.typicode.com/todos/1')
 
 const app = express()
 app.use(bodyParser.json())
@@ -19,9 +20,6 @@ const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
     function membershipno(agent){
-        const bent = require('bent')
-
-        const getStream = bent('https://jsonplaceholder.typicode.com/todos/1')
 
         let stream =  getStream('/json.api')
         // status code
