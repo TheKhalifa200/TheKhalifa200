@@ -1,7 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const {WebhookClient} = require('dialogflow-fulfillment');
-const rp = require('request-promise-native');
 
 
 const app = express()
@@ -20,20 +19,16 @@ const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
     function membershipno(agent){
-      var url = 'https://jsonplaceholder.typicode.com/todos/1';
-         var options = {
-        uri: url,
-        json: true
-        };
-        return rp.get( options )
-        .then( body => {
-      agent.add("Got a response: "+body);
-    })
-        .error( err => {
-        agent.add("Got an error: " + err);
-    });
-}
-    
+        const request = require('request');
+        request('https://jsonplaceholder.typicode.com/todos/1', function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                console.log(body)
+                agent.add(body) // Print the google web page.
+            }else{
+                agent.add("it did not work")
+            }
+        })
+    }
 
     function sayHello(agent){
         agent.add("Hello, this was a nice tutorial by axlewebtech")
