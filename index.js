@@ -19,7 +19,7 @@ const dialogflowFulfillment = (request, response) => {
 
     function membershipno(agent){
         const request = require('request');
-        request('https://jsonplaceholder.typicode.com/todos/1', function (error, response, body) {
+        request('http://157.175.215.187:3090/Membership/Profile?membershipNo=26233', function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 agent.add(console.log(body)) // Print the google web page.
             }else{
