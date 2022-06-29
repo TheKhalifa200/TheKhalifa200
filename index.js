@@ -5,7 +5,6 @@ const {WebhookClient} = require('dialogflow-fulfillment');
 
 const app = express()
 app.use(bodyParser.json())
-const port = process.env.PORT || 3000
 
 app.post('/dialogflow-fulfillment', (request, response) => {
     dialogflowFulfillment(request, response)
@@ -20,7 +19,7 @@ const dialogflowFulfillment = (request, response) => {
 
     async function membershipno(agent){
         const bent = require('bent')
-
+        
         const getStream = bent('https://jsonplaceholder.typicode.com/todos/1')
 
         let stream = await getStream('/json.api')
