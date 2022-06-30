@@ -21,13 +21,14 @@ const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
       function membershipno(agent){
-          agent.add(axios
+        let str = ""
+          axios
               .get('https://jsonplaceholder.typicode.com/todos/1')
               .then( response => {
                 console.log(`Source of Anime Qoutes:`);
-                ar[0] = console.log( response.data.join('\n') );
-              }))
-
+                str = console.log( response.data.join('\n') );
+              })
+              agent.add(str)
     }
 
     function sayHello(agent){
