@@ -22,7 +22,13 @@ const dialogflowFulfillment = (request, response) => {
 
       function membershipno(agent){
         const getJSON = bent('json')
-       agent.add(getJSON('https://jsonplaceholder.typicode.com/todos/1',userId))
+      let str = getJSON('https://jsonplaceholder.typicode.com/todos/1')
+      let ar = ["","",""]
+      for (i=0;i<ar.length;i++)
+      {
+        ar[i]=str[i]
+      }
+      agent.add(ar[0])
     }
 
     function sayHello(agent){
