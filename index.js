@@ -27,7 +27,7 @@ const dialogflowFulfillment = (request, response) => {
       let ar = []
       for (var i in str)
       {
-        ar.push([i, str [i]]);
+        ar.push([i, str[i]]);
       }
       agent.add(String(ar[0]))
     }
