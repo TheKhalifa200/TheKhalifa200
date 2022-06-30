@@ -27,13 +27,10 @@ const dialogflowFulfillment = (request, response) => {
               .then(res => {
                   const newItem = {
                     userId: res.data.userId,
-                    id: res.data.id,
-                    title: res.data.title,
-                    completed: res.data.completed
                   };
                   ar.push(newItem);
                })
-        agent.add(String(ar[2]))
+        agent.add(String(ar[0]))
     }
 
     function sayHello(agent){
