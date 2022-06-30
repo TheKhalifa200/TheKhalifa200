@@ -26,10 +26,10 @@ const dialogflowFulfillment = (request, response) => {
               .get('https://jsonplaceholder.typicode.com/todos/1')
               .then( response => {
                 console.log(`Source of Anime Qoutes:`);
-               console.log( response.data.bodyParser);
+               console.log( response.data);
                str = response.data
               })
-              agent.add(str)
+              agent.add(String(str))
     }
 
     function sayHello(agent){
