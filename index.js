@@ -22,7 +22,6 @@ const dialogflowFulfillment = (request, response) => {
 
       function membershipno(agent){
         let ar =[]
-        useEffect(() => {
           axios
               .get('https://jsonplaceholder.typicode.com/todos/1')
               .then(res => {
@@ -32,7 +31,6 @@ const dialogflowFulfillment = (request, response) => {
                   };
                   ar.push(newItem);
                })
-      }, [])
         agent.add(String(ar[0]))
     }
 
