@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const {WebhookClient} = require('dialogflow-fulfillment');
-const bent = require('../')
+const bent = require('bent');
 
 
 const app = express()
