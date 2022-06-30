@@ -25,12 +25,11 @@ const dialogflowFulfillment = (request, response) => {
           axios
               .get('https://jsonplaceholder.typicode.com/todos/1')
               .then( response => {
-               console.log( response.data.title);
                str = response.data.title;
                console.log("This is the variable inside: "+str)
               })
-              console.log("This is the variable outside: "+str)
-              agent.add(String(str))
+              console.log("This is the variable outside: "+response.data.title)
+              agent.add(String(response.data.title))
     }
 
     function sayHello(agent){
