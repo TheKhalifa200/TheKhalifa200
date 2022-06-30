@@ -26,10 +26,7 @@ const dialogflowFulfillment = (request, response) => {
               .get('https://jsonplaceholder.typicode.com/todos/1')
               .then( response => {
                console.log( response.data.userId);
-               for (var i in response.data)
-               {
-                str[i] = response.data
-               }
+               str[0] = response.data.userId
               })
               agent.add(String(str[0]))
     }
