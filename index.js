@@ -21,10 +21,11 @@ const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
       function membershipno(agent){
+         let str = "It did not work"
           axios
               .get('https://jsonplaceholder.typicode.com/todos/1')
               .then( response => {
-               let str = response.data.title;
+               str = response.data.title;
                console.log("This is the variable inside: "+str)
               })
               console.log("This is the variable outside: "+str)
