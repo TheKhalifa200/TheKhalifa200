@@ -26,9 +26,10 @@ const dialogflowFulfillment = (request, response) => {
               .get('https://jsonplaceholder.typicode.com/todos/1')
               .then( response => {
                console.log( response.data.title);
-               str[0] = response.data.title
+               str[0] = response.data.title;
+               console.log(str[0])
               })
-              agent.add(str[0])
+              agent.add(String(str[0]))
     }
 
     function sayHello(agent){
