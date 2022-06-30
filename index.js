@@ -20,9 +20,9 @@ app.listen(port, () => {
 const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
-      function membershipno(agent){
+      async function membershipno(agent){
          let str = "It did not work"
-          agent.add(String(axios
+          agent.add(String(await axios
               .get('https://jsonplaceholder.typicode.com/todos/1')
               .then( response => {
                str = response.data.title;
