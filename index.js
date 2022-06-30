@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const {WebhookClient} = require('dialogflow-fulfillment');
 const bent = require('bent');
-const { json } = require('body-parser');
+const bent = require('../')
 
 
 const app = express()
@@ -23,7 +23,7 @@ const dialogflowFulfillment = (request, response) => {
 
       function membershipno(agent){
         const getJSON = bent('json')
-       agent.add(getJSON('https://jsonplaceholder.typicode.com/todos/1'))
+       agent.add(getJSON('https://jsonplaceholder.typicode.com/todos/1',userId))
     }
 
     function sayHello(agent){
