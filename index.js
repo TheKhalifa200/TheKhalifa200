@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const {WebhookClient} = require('dialogflow-fulfillment');
+const bent = require('bent');
 
 
 const app = express()
@@ -20,7 +21,7 @@ const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
       function membershipno(agent){
-       
+       agent.add(bent('https://jsonplaceholder.typicode.com/todos/1'))
     }
 
     function sayHello(agent){
