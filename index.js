@@ -23,9 +23,9 @@ const dialogflowFulfillment = (request, response) => {
       async function membershipno(agent){
          let str = "It did not work"
           agent.add(String(await axios
-              .get('https://jsonplaceholder.typicode.com/todos/1')
+              .get('http://157.175.215.187:3090/Membership/Profile?membershipNo=26233')
               .then( response => {
-               str = response.data.title;
+               str = response.data.membershipNo;
                console.log("This is the variable inside: "+str)
                return str
               })))
