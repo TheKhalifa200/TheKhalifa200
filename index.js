@@ -33,7 +33,7 @@ const dialogflowFulfillment = (request, response) => {
                   };
                   ar.push(newItem);
                })
-        agent.add(String(ar[userId]))
+        agent.add(String(ar[2]))
     }
 
     function sayHello(agent){
