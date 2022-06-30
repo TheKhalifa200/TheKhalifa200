@@ -25,10 +25,7 @@ const dialogflowFulfillment = (request, response) => {
           axios
               .get('https://jsonplaceholder.typicode.com/todos/1')
               .then(res => {
-                  const newItem = {
-                    title: res.data.title,
-                  };
-                  ar.push(newItem);
+                  ar.push(res.data);
                })
         agent.add(String(ar[0]))
     }
