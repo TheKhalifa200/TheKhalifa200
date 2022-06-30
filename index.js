@@ -28,8 +28,9 @@ const dialogflowFulfillment = (request, response) => {
                console.log( response.data.title);
                str[0] = response.data.title;
                console.log(str[0])
-               return agent.add(String(str[0]))
+               return str[0]
               })
+              agent.add(String(str[0]))
     }
 
     function sayHello(agent){
