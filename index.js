@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const {WebhookClient} = require('dialogflow-fulfillment');
 const bent = require('bent');
+const axios = require('axios').default;
 
 
 const app = express()
@@ -21,14 +22,18 @@ const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
       function membershipno(agent){
-        const getJSON = bent('json')
-      let str = getJSON('https://jsonplaceholder.typicode.com/todos/1')
-      let ar = []
-      for (var i in str)
-      {
-        ar.push([i, str [i]]);
-      }
-      agent.add(ar[0])
+        axios({
+            method: 'get',
+            url: 'https://jsonplaceholder.typicode.com/todos/1',
+            responseType: 'String'
+        }).then(function (response){
+            let ar =[]
+            for (var i in console.log(response))
+            {
+                ar [i] = console.log(response)
+            }
+            agent.add(ar[0])
+        })
     }
 
     function sayHello(agent){
