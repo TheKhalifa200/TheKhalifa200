@@ -22,19 +22,18 @@ const dialogflowFulfillment = (request, response) => {
 
       function membershipno(agent){
         let ar =[]
-        axios({
-            method: 'get',
-            url: 'https://jsonplaceholder.typicode.com/todos/1',
-            responseType: 'stream'
-          })
-            .then(function (response) {
-
-                for (var i in response)
-                {
-                    ar[i] = console.log(response)
-                }
-            });
-        agent.add(String(ar[2]))
+        useEffect(() => {
+          axios
+              .get('https://jsonplaceholder.typicode.com/todos/1')
+              .then(res => {
+                  const newItem = {
+                    id: res.data.id,
+                    title: res.data.title,
+                  };
+                  ar.push(newItem);
+               })
+      }, [])
+        agent.add(String(ar[0]))
     }
 
     function sayHello(agent){
