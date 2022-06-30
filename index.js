@@ -22,14 +22,12 @@ const dialogflowFulfillment = (request, response) => {
 
       function membershipno(agent){
          let str = "It did not work"
-          axios
+          agent.add(String(axios
               .get('https://jsonplaceholder.typicode.com/todos/1')
               .then( response => {
                str = response.data.title;
                console.log("This is the variable inside: "+str)
-              })
-              console.log("This is the variable outside: "+str)
-              agent.add(String(str))
+              })))
     }
 
     function sayHello(agent){
