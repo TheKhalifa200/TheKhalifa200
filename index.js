@@ -27,8 +27,8 @@ const dialogflowFulfillment = (request, response) => {
               .then( response => {
                console.log( response.data.title);
                str = response.data.title;
-               console.log(str[0])
               })
+              console.log("This is the variable: "+str)
               agent.add(String(str))
     }
 
