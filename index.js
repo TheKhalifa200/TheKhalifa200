@@ -26,7 +26,7 @@ const dialogflowFulfillment = (request, response) => {
               .get('https://jsonplaceholder.typicode.com/todos/1')
               .then(res => {
                   const newItem = {
-                    userId: res.data.userId,
+                    title: res.data.title,
                   };
                   ar.push(newItem);
                })
