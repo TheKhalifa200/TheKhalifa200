@@ -29,7 +29,7 @@ const dialogflowFulfillment = (request, response) => {
           })
             .then(function (response) {
 
-                for (var i in response.data)
+                for (var i in response)
                 {
                     ar[i] = console.log(response)
                 }
