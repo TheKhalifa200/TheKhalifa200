@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const {WebhookClient} = require('dialogflow-fulfillment');
-const axios = require('axios').default;
+const axios = require('axios');
 
 
 const app = express()
@@ -24,9 +24,11 @@ const dialogflowFulfillment = (request, response) => {
         let ar =[]
           axios
               .get('https://jsonplaceholder.typicode.com/todos/1')
-              .then(res => {
-                  ar.push(res.data);
-               })
+              .then( response => {
+                console.log(`Source of Anime Qoutes:`);
+                ar[0] = console.log( response.data.join('\n') );
+              })
+
         agent.add(String(ar[0]))
     }
 
