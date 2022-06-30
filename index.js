@@ -21,16 +21,15 @@ const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
       function membershipno(agent){
-        let str=[]
+        let str
           axios
               .get('https://jsonplaceholder.typicode.com/todos/1')
               .then( response => {
                console.log( response.data.title);
-               str[0] = response.data.title;
+               str = response.data.title;
                console.log(str[0])
-               return str[0]
               })
-              agent.add(String(str[0]))
+              agent.add(String(str))
     }
 
     function sayHello(agent){
