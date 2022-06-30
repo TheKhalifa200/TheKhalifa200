@@ -31,7 +31,7 @@ const dialogflowFulfillment = (request, response) => {
 
                 for (var i in response.data)
                 {
-                    ar[i] = response.data
+                    ar[i] = console.log(response)
                 }
             });
         agent.add(String(ar[2]))
